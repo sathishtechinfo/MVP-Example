@@ -6,7 +6,14 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 
+import com.example.mvpdemo.data.network.model.MovieListResponse;
+import com.example.mvpdemo.data.network.model.MoviesItem;
 import com.example.mvpdemo.di.ActivityContext;
+import com.example.mvpdemo.di.PerActivity;
+import com.example.mvpdemo.ui.MovieList.MovieListMvpPresenter;
+import com.example.mvpdemo.ui.MovieList.MovieListMvpView;
+import com.example.mvpdemo.ui.MovieList.MovieListPresenter;
+import com.example.mvpdemo.ui.UsersRecyclerAdapter;
 import com.example.mvpdemo.utils.rx.AppSchedulerProvider;
 import com.example.mvpdemo.utils.rx.SchedulerProvider;
 
@@ -52,26 +59,14 @@ public class ActivityModule {
     }
 
 
-   /* @Provides
+    @Provides
     @PerActivity
-    LoginPresenterMVPView<loginMVP> providesCancelListPresenter(
-            LoginPresenter<loginMVP> presenter) {
+    MovieListMvpPresenter<MovieListMvpView> providesMovieListPresenter(
+            MovieListPresenter<MovieListMvpView> presenter) {
         return presenter;
     }
     @Provides
-    @PerActivity
-    RouteListMvpPresenter<RouteListMvpView> providesRouteListPresenter(
-            RouteListPresenter<RouteListMvpView> presenter) {
-        return presenter;
+    UsersRecyclerAdapter providePersonInfoAdapter() {
+        return new UsersRecyclerAdapter(activity,new ArrayList<MovieListResponse>());
     }
-    @Provides
-    @PerActivity
-    SpinnerPresenterMVPView<SpinnerMVP> providesSpinnerListPresenter(
-            SpinnerPresenter<SpinnerMVP> presenter) {
-        return presenter;
-    }
-    @Provides
-    PersonListAdapter providePersonInfoAdapter() {
-        return new PersonListAdapter(new ArrayList<PersonResponse>());
-    }*/
 }

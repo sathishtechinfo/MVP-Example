@@ -3,9 +3,9 @@ package com.example.mvpdemo.di.component;
 
 
 
-import com.example.mvpdemo.MainActivity;
 import com.example.mvpdemo.di.PerActivity;
 import com.example.mvpdemo.di.module.ActivityModule;
+import com.example.mvpdemo.ui.MovieList.MovieListActivity;
 
 import dagger.Component;
 
@@ -14,7 +14,7 @@ import dagger.Component;
 public interface ActivityComponent {
 
 
-    void inject(MainActivity activity);
+    void inject(MovieListActivity activity);
 
 
 }

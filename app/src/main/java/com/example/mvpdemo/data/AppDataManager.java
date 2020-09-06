@@ -4,6 +4,8 @@ import android.content.Context;
 
 
 import com.example.mvpdemo.data.network.ApiHelper;
+import com.example.mvpdemo.data.network.model.MovieListResponse;
+import com.example.mvpdemo.data.network.model.MovieResponse;
 import com.example.mvpdemo.data.prefs.PreferencesHelper;
 import com.example.mvpdemo.di.ApplicationContext;
 
@@ -70,6 +72,11 @@ public class AppDataManager implements DataManager {
     @Override
     public void setCurrentUserLoggedInMode(boolean mode) {
 
+    }
+
+    @Override
+    public Single<List<MovieListResponse>> getPostApiCall() {
+        return mApiHelper.getPostApiCall();
     }
 
   /*  @Override
